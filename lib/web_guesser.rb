@@ -2,7 +2,7 @@ require "sinatra"
 require 'sinatra/reloader'
 
 set :secret_number, rand(101)
-@@attempts = 3
+@@attempts = 5
 
 get "/" do
 	guess = params["guess"]
@@ -18,7 +18,7 @@ def generate_number(diff)
 	return if diff == nil
 	if @@attempts == 1 || diff == 0
 		settings.secret_number = rand(101)
-		@@attempts = 3
+		@@attempts = 5
 	else
 		@@attempts -= 1
 	end
